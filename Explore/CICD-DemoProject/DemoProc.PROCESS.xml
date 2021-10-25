@@ -1,0 +1,63 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>DPFn2H0Fdw8jIw8-gt-3602657-2021-10-25T14:12:28.476Z::pd.xml</types1:EntryId>
+      <types1:Name>DemoProc</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vinayak_CICD</types1:CreatedBy>
+      <types1:CreationDate>2021-10-25T14:12:28Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>vinayak_CICD</types1:PublishedBy>
+      <types1:PublicationDate>2021-10-25T14:12:35Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.DemoProc/DemoProc.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="DemoProc"
+                  name="DemoProc"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="message" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="none">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kv6qmzl9" targetId="kv6qmzl8"/>
+               </start>
+               <assignment id="kv6qmzl8">
+                  <title>Assignment to message</title>
+                  <operation source="constant" to="output.message">Welcome to CICD Demo using Github</operation>
+                  <link id="kv6qmzla" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>0EgRFrqJCMlgJDXzwsyEEB</types1:GUID>
+      <types1:DisplayName>DemoProc</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-10-25T14:21:49.852Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
