@@ -12,10 +12,11 @@
       <types1:ProcessGroup/>
       <types1:CreatedBy>vinayak_CICD</types1:CreatedBy>
       <types1:CreationDate>2021-10-25T14:12:28Z</types1:CreationDate>
-      <types1:ModifiedBy/>
+      <types1:ModifiedBy>vinayak_CICD</types1:ModifiedBy>
+      <types1:ModificationDate>2021-10-28T14:36:34Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>vinayak_CICD</types1:PublishedBy>
-      <types1:PublicationDate>2021-10-25T14:12:35Z</types1:PublicationDate>
+      <types1:PublicationDate>2021-10-28T14:36:45Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.DemoProc/DemoProc.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -49,7 +50,7 @@
                </start>
                <assignment id="kv6qmzl8">
                   <title>Assignment to message</title>
-                  <operation source="constant" to="output.message">Welcome to CICD Demo using Github</operation>
+                  <operation source="constant" to="output.message">Welcome to CICD Demo using Github version 2.0</operation>
                   <link id="kv6qmzla" targetId="c"/>
                </assignment>
                <end id="c"/>
@@ -59,5 +60,5 @@
       <types1:GUID>0EgRFrqJCMlgJDXzwsyEEB</types1:GUID>
       <types1:DisplayName>DemoProc</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-10-25T14:21:49.852Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-10-28T14:39:18.945Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
