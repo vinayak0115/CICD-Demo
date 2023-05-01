@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "boOPFg9FiQ6hdeY8DOhIYt",
+    "name" : "EmpObject",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "jGIDhMBu8zbgdwU-gt-11985492-2023-05-01T07:03:41.589Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
