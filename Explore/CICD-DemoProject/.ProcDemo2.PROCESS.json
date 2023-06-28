@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "73hFbJIun1wkCtKa8fT2Ez",
+    "name" : "ProcDemo2",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "3s8NTYglxbdypKw-gt-1214512-2021-10-28T15:22:10.879Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

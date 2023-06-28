@@ -1,0 +1,43 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>pr1Iw8jIw8jIw8j-gt-11985512-2023-05-01T07:03:42.506Z::po.xml</types1:EntryId>
+      <types1:Name>Bookstore-1</types1:Name>
+      <types1:ParentFlowIds>4ZnchKGXShOeCFk-gt-12058186-2023-05-01T07:18:01.899Z::pd.xml,qdsQR6kbeJHQjAT-gt-11985522-2023-05-01T07:03:42.656Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+processobject</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vinayak_CICD</types1:CreatedBy>
+      <types1:CreationDate>2023-05-01T07:03:43Z</types1:CreationDate>
+      <types1:ModifiedBy>vinayak_CICD</types1:ModifiedBy>
+      <types1:ModificationDate>2023-05-01T07:05:57Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                        xmlns:comm="http://schemas.informatica.com/socrates/processobject/factory/2019/07/common/infaProcessObjectFactory.xsd"
+                        xmlns:aetgt="http://schemas.informatica.com/socrates/processobject/factory/2019/07/internal/infaProcessObjectFactory.xsd"
+                        xmlns:internal2="http://schemas.informatica.com/socrates/processobject/factory/2019/07/internal/infaProcessObjectFactory.xsd"
+                        isByCopy="true"
+                        name="Bookstore-1">
+            <description>Demo</description>
+            <detail>
+               <field label="book" name="book" nullable="false" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:Book-1</option>
+                     <option name="guid">jiBIvzNdmSqbXiU7R5WSIg</option>
+                     <option name="relationshipName">Child</option>
+                  </options>
+               </field>
+            </detail>
+         </processObject>
+      </types1:Entry>
+      <types1:GUID>kp3Er74iuC6fCwNsORohad</types1:GUID>
+      <types1:DisplayName>Bookstore</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2023-05-01T07:31:24.429Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

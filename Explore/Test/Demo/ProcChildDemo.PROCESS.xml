@@ -1,0 +1,90 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>qdsQR6kbeJHQjAT-gt-11985522-2023-05-01T07:03:42.656Z::pd.xml</types1:EntryId>
+      <types1:Name>ProcChildDemo</types1:Name>
+      <types1:ParentFlowIds>4ZnchKGXShOeCFk-gt-12058186-2023-05-01T07:18:01.899Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vinayak_CICD</types1:CreatedBy>
+      <types1:CreationDate>2023-05-01T07:03:43Z</types1:CreationDate>
+      <types1:ModifiedBy>vinayak_CICD</types1:ModifiedBy>
+      <types1:ModificationDate>2023-05-01T07:11:24Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>vinayak_CICD</types1:PublishedBy>
+      <types1:PublicationDate>2023-05-01T07:20:08Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.ProcChildDemo/ProcChildDemo.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="ProcChildDemo"
+                  name="ProcChildDemo"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="inData" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:Bookstore-1</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">kp3Er74iuC6fCwNsORohad</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="bookid" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="authir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="book" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:Book-1</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">jiBIvzNdmSqbXiU7R5WSIg</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="lh4h7ewg" targetId="lh4h7ewf"/>
+               </start>
+               <assignment id="lh4h7ewf">
+                  <title>Assignment to authir, bookid etc.</title>
+                  <operation source="field" to="output.authir">input.inData[1]/book[1]/author</operation>
+                  <operation source="field" to="output.bookid">input.inData[1]/book[1]/book_id</operation>
+                  <operation source="field" to="temp.book">input.inData[1]/book</operation>
+                  <link id="lh4h7ewh" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>9fqGMMIxc6lcKf4DR3zWIU</types1:GUID>
+      <types1:DisplayName>ProcChildDemo</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2023-05-01T07:31:24.484Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

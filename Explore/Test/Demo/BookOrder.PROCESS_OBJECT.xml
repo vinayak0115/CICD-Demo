@@ -1,0 +1,79 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>kPaaaaaaaaa-gt-11985500-2023-05-01T07:03:41.632Z::po.xml</types1:EntryId>
+      <types1:Name>BookOrder-1</types1:Name>
+      <types1:MimeType>application/xml+processobject</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vinayak_CICD</types1:CreatedBy>
+      <types1:CreationDate>2023-05-01T07:03:42Z</types1:CreationDate>
+      <types1:ModifiedBy>vinayak_CICD</types1:ModifiedBy>
+      <types1:ModificationDate>2023-05-01T07:05:56Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                        xmlns:comm="http://schemas.informatica.com/socrates/processobject/factory/2019/07/common/infaProcessObjectFactory.xsd"
+                        xmlns:aetgt="http://schemas.informatica.com/socrates/processobject/factory/2019/07/internal/infaProcessObjectFactory.xsd"
+                        xmlns:internal2="http://schemas.informatica.com/socrates/processobject/factory/2019/07/internal/infaProcessObjectFactory.xsd"
+                        isByCopy="true"
+                        name="BookOrder-1">
+            <description xmlns:ns2="http://schemas.active-endpoints.com/appmodules/screenflow/2011/07/avosCommon.xsd">This object was generated from [anonymous complex type] located in the [xml_schema.xsd] source XML schema.</description>
+            <detail>
+               <field xmlns:ns2="http://schemas.active-endpoints.com/appmodules/screenflow/2011/07/avosCommon.xsd"
+                      label="order_id"
+                      name="order_id"
+                      nullable="false"
+                      required="true"
+                      type="int">
+                  <options>
+                     <option name="min">-128</option>
+                     <option name="max">127</option>
+                  </options>
+               </field>
+               <field xmlns:ns2="http://schemas.active-endpoints.com/appmodules/screenflow/2011/07/avosCommon.xsd"
+                      label="book_ref_id"
+                      name="book_ref_id"
+                      nullable="false"
+                      required="true"
+                      type="int">
+                  <options>
+                     <option name="min">-128</option>
+                     <option name="max">127</option>
+                  </options>
+               </field>
+               <field xmlns:ns2="http://schemas.active-endpoints.com/appmodules/screenflow/2011/07/avosCommon.xsd"
+                      label="qty"
+                      name="qty"
+                      nullable="false"
+                      required="true"
+                      type="int">
+                  <options>
+                     <option name="min">-128</option>
+                     <option name="max">127</option>
+                  </options>
+               </field>
+               <field xmlns:ns2="http://schemas.active-endpoints.com/appmodules/screenflow/2011/07/avosCommon.xsd"
+                      label="amnt"
+                      name="amnt"
+                      nullable="false"
+                      required="true"
+                      type="int">
+                  <options>
+                     <option name="min">-32768</option>
+                     <option name="max">32767</option>
+                  </options>
+               </field>
+            </detail>
+         </processObject>
+      </types1:Entry>
+      <types1:GUID>88dnluqxYkwgd6HSSzMbIC</types1:GUID>
+      <types1:DisplayName>BookOrder</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2023-05-01T07:31:24.23Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

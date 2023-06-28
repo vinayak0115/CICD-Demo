@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "4tqeLMIhrqBdD3FfJf6REO",
+    "name" : "CICD-DemoProject",
+    "type" : "Project",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "This project is created for CICD Demo",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

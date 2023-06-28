@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "0EgRFrqJCMlgJDXzwsyEEB",
+    "name" : "DemoProc",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "DPFn2H0Fdw8jIw8-gt-3602657-2021-10-25T14:12:28.476Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
