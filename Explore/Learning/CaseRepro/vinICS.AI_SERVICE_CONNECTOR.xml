@@ -1,0 +1,876 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>m9cjIw8jIw8jIw8-gt-1790412-2024-02-26T11:55:18.199Z::svc.xml</types1:EntryId>
+      <types1:Name>vinICS</types1:Name>
+      <types1:ParentFlowIds>ymbduaa-gt-1790422-2024-02-26T11:55:18.402Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>Informatica Cloud API</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vinayak_CICD</types1:CreatedBy>
+      <types1:CreationDate>2024-02-26T11:55:18Z</types1:CreationDate>
+      <types1:ModifiedBy>vinayak_CICD</types1:ModifiedBy>
+      <types1:ModificationDate>2024-02-26T12:03:54Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>vinayak_CICD</types1:PublishedBy>
+      <types1:PublicationDate>2024-02-26T12:03:58Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/vinICS/vinICS_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="vinICS"
+                            label=""
+                            name="vinICS"
+                            uuid="5fd1a14e-65f2-43b0-bfde-ebbf1b159041">
+            <description>Informatica Cloud API</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    label="password"
+                                    masked="false"
+                                    name="password"
+                                    required="false"
+                                    testWith="fff"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="login"
+                       maxRedirects="100"
+                       name="login"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="username"
+                                required="false"
+                                testWith="test"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="password"
+                                required="false"
+                                testWith="test"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://dm-us.informaticacloud.com/saas/public/core/v3/login"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="JSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="icSessionID"
+                            property="sessionId"
+                            type="string"/>
+                     <field description=""
+                            name="ServerURL"
+                            property="baseApiUrl"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="callJob"
+                       maxRedirects="100"
+                       name="callJob"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description="This is actually JOB ID like 001P820I000000000002"
+                                name="jobName"
+                                nogen="true"
+                                required="false"
+                                testWith="001P820I000000000002"
+                                type="string"/>
+                     <parameter name="jobType"
+                                nogen="true"
+                                required="false"
+                                testWith="DSS"
+                                type="string"/>
+                     <parameter name="serverUrl"
+                                nogen="true"
+                                required="false"
+                                testWith="https://app3.informaticacloud.com/saas"
+                                type="string"/>
+                     <parameter name="icSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="ExgFwImJ6sIeoZHD"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated" url="{$serverUrl}" verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="icSessionId">{$icSessionId}</header>
+                           <header name="Accept">application/xml</header>
+                        </httpHeaders>
+                        <body>{{
+"@type": "job",
+"taskId": "{$jobName}",
+"taskType": "{$jobType}"
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="runID" type="double">
+                        <xquery>{$RESTResponse/rest:payload/job/runId/text()}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="kreateMCT"
+                       maxRedirects="100"
+                       name="kreateMCT"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="icSessionId"
+                                nogen="true"
+                                required="true"
+                                testWith="aNRg6ao04IAb2ryqurdDax"
+                                type="string"/>
+                     <parameter name="serverUrl"
+                                nogen="true"
+                                required="true"
+                                testWith="https://na2.dm-us.informaticacloud.com/saas"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$serverUrl}/api/v2/mttask/"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="icSessionId">{$icSessionId}</header>
+                           <header name="Content-Type">application/xml</header>
+                           <header name="Accept">application/xml</header>
+                        </httpHeaders>
+                        <body>&lt;mtTask&gt;
+    &lt;id&gt;00175M0Z0000000000FS&lt;/id&gt;
+    &lt;orgId&gt;00175M&lt;/orgId&gt;
+    &lt;name&gt;MappingTask37&lt;/name&gt;
+    &lt;description&gt;&lt;/description&gt;
+    &lt;createTime&gt;2019-08-07T13:26:08.000Z&lt;/createTime&gt;
+    &lt;updateTime&gt;2019-08-07T13:26:08.000Z&lt;/updateTime&gt;
+    &lt;createdBy&gt;vinayak@sum.in&lt;/createdBy&gt;
+    &lt;updatedBy&gt;vinayak@sum.in&lt;/updatedBy&gt;
+    &lt;agentId&gt;00175M0800000000000O&lt;/agentId&gt;
+    &lt;runtimeEnvironmentId&gt;00175M2500000000000T&lt;/runtimeEnvironmentId&gt;
+    &lt;maxLogs&gt;10&lt;/maxLogs&gt;
+    &lt;parameters&gt;
+        &lt;parameter&gt;
+            &lt;id&gt;14980575&lt;/id&gt;
+            &lt;name&gt;$Source$&lt;/name&gt;
+            &lt;type&gt;EXTENDED_SOURCE&lt;/type&gt;
+            &lt;label&gt;Source&lt;/label&gt;
+            &lt;uiProperties&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;connectionParameterized&lt;/key&gt;
+                    &lt;value&gt;false&lt;/value&gt;
+                &lt;/entry&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;isMsrcFilterParameterized&lt;/key&gt;
+                    &lt;value&gt;false&lt;/value&gt;
+                &lt;/entry&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;isMsrcSortParameterized&lt;/key&gt;
+                    &lt;value&gt;false&lt;/value&gt;
+                &lt;/entry&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;objlabel&lt;/key&gt;
+                    &lt;value&gt;src&lt;/value&gt;
+                &lt;/entry&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;objectParameterized&lt;/key&gt;
+                    &lt;value&gt;true&lt;/value&gt;
+                &lt;/entry&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;objDesc&lt;/key&gt;
+                    &lt;value&gt;&lt;/value&gt;
+                &lt;/entry&gt;
+            &lt;/uiProperties&gt;
+            &lt;sourceConnectionId&gt;00175M0B00000000007P&lt;/sourceConnectionId&gt;
+            &lt;newFlatFile&gt;false&lt;/newFlatFile&gt;
+            &lt;newObject&gt;false&lt;/newObject&gt;
+            &lt;showBusinessNames&gt;true&lt;/showBusinessNames&gt;
+            &lt;naturalOrder&gt;true&lt;/naturalOrder&gt;
+            &lt;truncateTarget&gt;false&lt;/truncateTarget&gt;
+            &lt;bulkApiDBTarget&gt;false&lt;/bulkApiDBTarget&gt;
+            &lt;customFuncCfg&gt;
+                &lt;id&gt;-1&lt;/id&gt;
+            &lt;/customFuncCfg&gt;
+            &lt;tgtFieldRefs/&gt;
+            &lt;extendedObject&gt;
+                &lt;object&gt;
+                    &lt;name&gt;Contact2.csv&lt;/name&gt;
+                    &lt;label&gt;Contact2.csv&lt;/label&gt;
+                    &lt;metadataUpdated&gt;false&lt;/metadataUpdated&gt;
+                    &lt;relations/&gt;
+                    &lt;children/&gt;
+                &lt;/object&gt;
+                &lt;filters/&gt;
+                &lt;sortFields/&gt;
+            &lt;/extendedObject&gt;
+            &lt;runtimeAttrs/&gt;
+            &lt;isRESTModernSource&gt;true&lt;/isRESTModernSource&gt;
+            &lt;isFileList&gt;false&lt;/isFileList&gt;
+            &lt;handleSpecialChars&gt;false&lt;/handleSpecialChars&gt;
+            &lt;frsAsset&gt;false&lt;/frsAsset&gt;
+            &lt;overriddenFields/&gt;
+            &lt;tgtObjectAttributes/&gt;
+            &lt;runtimeParameterData&gt;
+                &lt;isConnectionRuntimeParameter&gt;false&lt;/isConnectionRuntimeParameter&gt;
+                &lt;isObjectRuntimeParameter&gt;true&lt;/isObjectRuntimeParameter&gt;
+                &lt;objectParameterName&gt;src&lt;/objectParameterName&gt;
+                &lt;objectDefaultValue&gt;Contact2.csv&lt;/objectDefaultValue&gt;
+            &lt;/runtimeParameterData&gt;
+        &lt;/parameter&gt;
+        &lt;parameter&gt;
+            &lt;id&gt;14980576&lt;/id&gt;
+            &lt;name&gt;$Target$&lt;/name&gt;
+            &lt;type&gt;TARGET&lt;/type&gt;
+            &lt;label&gt;Target&lt;/label&gt;
+            &lt;uiProperties&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;connectionParameterized&lt;/key&gt;
+                    &lt;value&gt;false&lt;/value&gt;
+                &lt;/entry&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;objlabel&lt;/key&gt;
+                    &lt;value&gt;tgt&lt;/value&gt;
+                &lt;/entry&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;objectParameterized&lt;/key&gt;
+                    &lt;value&gt;true&lt;/value&gt;
+                &lt;/entry&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;objDesc&lt;/key&gt;
+                    &lt;value&gt;&lt;/value&gt;
+                &lt;/entry&gt;
+                &lt;entry&gt;
+                    &lt;key&gt;defaultTargetUpdateColumns&lt;/key&gt;
+                    &lt;value&gt;&lt;/value&gt;
+                &lt;/entry&gt;
+            &lt;/uiProperties&gt;
+            &lt;targetConnectionId&gt;00175M0B00000000007P&lt;/targetConnectionId&gt;
+            &lt;targetObject&gt;$Target&lt;/targetObject&gt;
+            &lt;targetObjectLabel&gt;test2.csv&lt;/targetObjectLabel&gt;
+            &lt;newFlatFile&gt;false&lt;/newFlatFile&gt;
+            &lt;newObject&gt;true&lt;/newObject&gt;
+            &lt;showBusinessNames&gt;true&lt;/showBusinessNames&gt;
+            &lt;naturalOrder&gt;true&lt;/naturalOrder&gt;
+            &lt;newObjectName&gt;$Target&lt;/newObjectName&gt;
+            &lt;truncateTarget&gt;false&lt;/truncateTarget&gt;
+            &lt;bulkApiDBTarget&gt;false&lt;/bulkApiDBTarget&gt;
+            &lt;operationType&gt;Insert&lt;/operationType&gt;
+            &lt;customFuncCfg&gt;
+                &lt;id&gt;-1&lt;/id&gt;
+            &lt;/customFuncCfg&gt;
+            &lt;tgtFieldRefs/&gt;
+            &lt;extendedObject&gt;
+                &lt;filters/&gt;
+                &lt;sortFields/&gt;
+            &lt;/extendedObject&gt;
+            &lt;runtimeAttrs/&gt;
+            &lt;isRESTModernSource&gt;true&lt;/isRESTModernSource&gt;
+            &lt;isFileList&gt;false&lt;/isFileList&gt;
+            &lt;handleSpecialChars&gt;true&lt;/handleSpecialChars&gt;
+            &lt;frsAsset&gt;false&lt;/frsAsset&gt;
+            &lt;overriddenFields/&gt;
+            &lt;tgtObjectAttributes/&gt;
+            &lt;runtimeParameterData&gt;
+                &lt;isConnectionRuntimeParameter&gt;false&lt;/isConnectionRuntimeParameter&gt;
+                &lt;isObjectRuntimeParameter&gt;true&lt;/isObjectRuntimeParameter&gt;
+                &lt;objectParameterName&gt;tgt&lt;/objectParameterName&gt;
+                &lt;objectDefaultValue&gt;test.csv&lt;/objectDefaultValue&gt;
+            &lt;/runtimeParameterData&gt;
+        &lt;/parameter&gt;
+    &lt;/parameters&gt;
+    &lt;verbose&gt;false&lt;/verbose&gt;
+    &lt;mappingId&gt;00175M170000000000C3&lt;/mappingId&gt;
+    &lt;shortDescription&gt;&lt;/shortDescription&gt;
+    &lt;sessionProperties/&gt;
+    &lt;sequences/&gt;
+    &lt;inOutParameters/&gt;
+    &lt;enableCrossSchemaPushdown&gt;true&lt;/enableCrossSchemaPushdown&gt;
+    &lt;connRuntimeAttrs/&gt;
+&lt;/mtTask&gt;</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="ResponseCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                     <field description="" name="MttIDreturned" type="string">
+                        <xquery>{$RESTResponse/rest:payload/mtTask/id/text()}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="deleteMtt"
+                       maxRedirects="100"
+                       name="deleteMtt"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="icSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="aNRg6ao04IAb2ryqurdDax"
+                                type="string"/>
+                     <parameter name="mtTaskID"
+                                nogen="true"
+                                required="false"
+                                testWith="00175M0Z0000000000C6"
+                                type="string"/>
+                     <parameter name="serverUrl"
+                                nogen="true"
+                                required="false"
+                                testWith="https://na2.dm-us.informaticacloud.com/saas"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$serverUrl}/api/v2/mttask/{$mtTaskID}"
+                                        verb="DELETE">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="icSessionId">{$icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="statusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="userGroup"
+                       maxRedirects="100"
+                       name="userGroup"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="serverURL"
+                                nogen="true"
+                                required="false"
+                                testWith="https://na2.dm-us.informaticacloud.com/saas/"
+                                type="string"/>
+                     <parameter name="q"
+                                required="false"
+                                testWith="userGroupName==&#34;super admin&#34;"
+                                type="string"/>
+                     <parameter name="sessionid"
+                                nogen="true"
+                                required="false"
+                                testWith="j1RPjOCctE7jhi8clX11Qk"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$serverURL||'public/core/v3/userGroups'}"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                           <header name="INFA-SESSION-ID">{$sessionid}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="hasNextLink"
+                            property="hasNextLink"
+                            type="string"/>
+                     <field description=""
+                            name="NextLinkURL"
+                            property="NextLinkURL"
+                            type="string"/>
+                     <field description=""
+                            name="NextLinkToken"
+                            property="NextLinkToken"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="uploadPackage"
+                       maxRedirects="100"
+                       name="uploadPackage"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="package"
+                                required="false"
+                                testWith=""
+                                type="attachment"/>
+                     <parameter description=""
+                                label=""
+                                name="InfaSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="2qWpSYRxqG8jp939Iup909"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="ServerURL"
+                                nogen="true"
+                                required="false"
+                                testWith="https://na2.dm-us.informaticacloud.com/saas"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$ServerURL||'/public/core/v3/import/package'}"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">multipart/form-data</header>
+                           <header name="INFA-SESSION-ID">{$InfaSessionId}</header>
+                        </httpHeaders>
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="ImportJobId"
+                            property="jobId"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="DownloadExportFile"
+                       maxRedirects="100"
+                       name="DownloadExportFile"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="inBaseURL"
+                                nogen="true"
+                                required="false"
+                                testWith="https://na2.dm-us.informaticacloud.com/saas"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="InfaSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="djVlHTBfyYmfXoKkO2XRee"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="JobId"
+                                nogen="true"
+                                required="false"
+                                testWith="9HnfL062uQzfj1GSeS9XWf"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$inBaseURL||'/public/core/v3/export/' ||$JobId ||'/package'}"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                           <header name="INFA-SESSION-ID">{ $InfaSessionId }</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field attachment="true"
+                            description=""
+                            name="OutputFile"
+                            type="attachment"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="ExportAsset"
+                       maxRedirects="100"
+                       name="ExportAsset"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="ObjectId"
+                                nogen="true"
+                                required="false"
+                                testWith="7yjlDIEt5PKgF8N8axTH2v"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="ExportJobName"
+                                nogen="true"
+                                required="false"
+                                testWith="POProcExport"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="InfaSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="djVlHTBfyYmfXoKkO2XRee"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="inBaseURL"
+                                nogen="true"
+                                required="false"
+                                testWith="https://na2.dm-us.informaticacloud.com/saas"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$inBaseURL||'/public/core/v3/export'}"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                           <header name="INFA-SESSION-ID">{$InfaSessionId}</header>
+                        </httpHeaders>
+                        <body>{{
+    "name" : "{ $ExportJobName }",
+    "objects" : [
+       {{
+            "id": "{ $ObjectId }",
+            "includeDependencies" : false
+        }}
+    ]
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="ExportJobId" property="id" type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="StartImport"
+                       maxRedirects="100"
+                       name="StartImport"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="inBaseURL"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="InfaSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="JobId"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$inBaseURL||'/public/core/v3/import/'|| $JobId }"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="INFA-SESSION-ID">{ $InfaSessionId }</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="importResp"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="user">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="id" nullable="true" required="false" type="string"/>
+                     <field name="orgId" nullable="true" required="false" type="string"/>
+                     <field name="name" nullable="true" required="false" type="string"/>
+                     <field name="createTime"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="updateTime"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="createdBy" nullable="true" required="false" type="string"/>
+                     <field name="updatedBy" nullable="true" required="false" type="string"/>
+                     <field name="sfUsername"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="firstName" nullable="true" required="false" type="string"/>
+                     <field name="lastName" nullable="true" required="false" type="string"/>
+                     <field name="title" nullable="true" required="false" type="string"/>
+                     <field name="password" nullable="true" required="false" type="string"/>
+                     <field name="phone" nullable="true" required="false" type="double"/>
+                     <field name="emails" nullable="true" required="false" type="string"/>
+                     <field name="timezone" nullable="true" required="false" type="string"/>
+                     <field name="serverUrl" nullable="true" required="false" type="string"/>
+                     <field name="spiUrl" nullable="true" required="false" type="string"/>
+                     <field name="icSessionId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="securityQuestion"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="forceChangePassword"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="uuid" nullable="true" required="false" type="string"/>
+                     <field name="optOutOfEmails"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="usergroups"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">usergroups</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="roles" nullable="true" required="false" type="reference">
+                        <options>
+                           <option name="referenceTo">roles</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="usergroups">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="usergroup"
+                            nullable="true"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">usergroup</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="usergroup">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="id" nullable="true" required="false" type="string"/>
+                     <field name="orgId" nullable="true" required="false" type="string"/>
+                     <field name="name" nullable="true" required="false" type="string"/>
+                     <field name="createTime"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="updateTime"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="createdBy" nullable="true" required="false" type="string"/>
+                     <field name="updatedBy" nullable="true" required="false" type="string"/>
+                     <field name="aclEntries"
+                            nullable="true"
+                            required="false"
+                            type="objectlist">
+                        <options>
+                           <option name="referenceTo">aclEntries</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="aclEntries">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="objectType"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="createPermission"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="readPermission"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="updatePermission"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="deletePermission"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="executePermission"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="adminPermission"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="userGroupId"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="roles">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="role" nullable="true" required="false" type="objectlist">
+                        <options>
+                           <option name="referenceTo">role</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="role">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="name" nullable="true" required="false" type="string"/>
+                     <field name="description"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="temp">
+                  <description/>
+                  <detail>
+                     <field name="new-name" nullable="true" required="true" type="boolean"/>
+                     <field name="Type" nullable="true" required="false" type="reference">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">$po:$any</option>
+                        </options>
+                     </field>
+                     <field name="Object" nullable="true" required="false" type="reference">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">$po:$any</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>9YHN9ehbbRDkf5caxT01gN</types1:GUID>
+      <types1:DisplayName>vinICS</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-02-26T12:17:10.359Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

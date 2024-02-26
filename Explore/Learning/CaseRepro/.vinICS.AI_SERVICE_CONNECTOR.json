@@ -1,0 +1,25 @@
+{
+  "objectInfo" : {
+    "id" : "9YHN9ehbbRDkf5caxT01gN",
+    "name" : "vinICS",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "m9cjIw8jIw8jIw8-gt-1790412-2024-02-26T11:55:18.199Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Informatica Cloud API",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2024-02-26T12:17:10.685Z",
+  "objectRefs" : [ ]
+}
