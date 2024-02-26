@@ -14,7 +14,7 @@
       <types1:CreatedBy>vinayak_CICDQA</types1:CreatedBy>
       <types1:CreationDate>2024-02-26T12:24:31Z</types1:CreationDate>
       <types1:ModifiedBy>vinayak_CICDQA</types1:ModifiedBy>
-      <types1:ModificationDate>2024-02-26T12:47:05Z</types1:ModificationDate>
+      <types1:ModificationDate>2024-02-26T12:55:09Z</types1:ModificationDate>
       <types1:PublicationStatus>unpublished</types1:PublicationStatus>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -26,7 +26,7 @@
             <tags/>
             <agent/>
             <attributes>
-               <attribute encrypted="false" name="password" value="23345vv"/>
+               <attribute encrypted="false" name="password" value="acd"/>
             </attributes>
             <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
                                agentOnly="false"
@@ -42,5 +42,5 @@
       <types1:GUID>j0643alm5s7gCWvWpoo2K0</types1:GUID>
       <types1:DisplayName>vinICS-con</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2024-02-26T12:50:16.355Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2024-02-26T12:56:38.598Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
