@@ -1,0 +1,45 @@
+{
+  "objectInfo" : {
+    "id" : "j0643alm5s7gCWvWpoo2K0",
+    "name" : "vinICS-con",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Tm8lnCmp6oIuQaa-gt-1798205-2024-02-26T12:24:30.736Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2024-02-26T12:50:16.538Z",
+  "objectRefs" : [ {
+    "id" : "iEMq6RZPMQvf90hUFm8Ekx",
+    "name" : "vinICS",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "ZfYEWNTrKkQIW3N-gt-1766473-2024-02-26T12:24:29.837Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Informatica Cloud API",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Learning/CaseRepro"
+  } ]
+}

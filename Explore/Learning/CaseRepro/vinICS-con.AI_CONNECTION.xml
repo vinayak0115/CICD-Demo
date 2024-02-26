@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>Tm8lnCmp6oIuQaa-gt-1798205-2024-02-26T12:24:30.736Z::conn.xml</types1:EntryId>
+      <types1:Name>vinICS-con</types1:Name>
+      <types1:ParentFlowIds>Kf3eFhBJQWSwxF1-gt-1777284-2024-02-26T12:24:31.59Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vinayak_CICDQA</types1:CreatedBy>
+      <types1:CreationDate>2024-02-26T12:24:31Z</types1:CreationDate>
+      <types1:ModifiedBy>vinayak_CICDQA</types1:ModifiedBy>
+      <types1:ModificationDate>2024-02-26T12:47:05Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="vinICS-con"
+                     label="vinICS-con"
+                     name="vinICS-con">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false" name="password" value="23345vv"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/vinICS/vinICS_svcDef.xml"
+                               guid="iEMq6RZPMQvf90hUFm8Ekx"
+                               name="vinICS"
+                               supportsConnectionTest="false"
+                               uuid="5fd1a14e-65f2-43b0-bfde-ebbf1b159041">
+               <description>Informatica Cloud API</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>j0643alm5s7gCWvWpoo2K0</types1:GUID>
+      <types1:DisplayName>vinICS-con</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2024-02-26T12:50:16.355Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

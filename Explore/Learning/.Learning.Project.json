@@ -1,0 +1,23 @@
+{
+  "objectInfo" : {
+    "id" : "a8W1qvyqoV1eXXnR5gf2Gg",
+    "name" : "Learning",
+    "type" : "Project",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "This project can be used for learning purpose",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "updateTime" : "2024-02-26T12:50:16.538Z",
+  "objectRefs" : [ ]
+}
