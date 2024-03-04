@@ -14,10 +14,10 @@
       <types1:CreatedBy>vinayak_CICDQA</types1:CreatedBy>
       <types1:CreationDate>2024-02-26T12:24:31Z</types1:CreationDate>
       <types1:ModifiedBy>vinayak_CICDQA</types1:ModifiedBy>
-      <types1:ModificationDate>2024-03-04T13:26:03Z</types1:ModificationDate>
+      <types1:ModificationDate>2024-03-04T13:29:40Z</types1:ModificationDate>
       <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
       <types1:PublishedBy>vinayak_CICDQA</types1:PublishedBy>
-      <types1:PublicationDate>2024-02-26T12:57:08Z</types1:PublicationDate>
+      <types1:PublicationDate>2024-03-04T13:26:50Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connection/vinICS-con/vinICS-con.conn.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -29,7 +29,7 @@
             <tags/>
             <agent/>
             <attributes>
-               <attribute encrypted="false" name="password" value="sgdsg"/>
+               <attribute encrypted="false" name="password" value="ggg"/>
                <attribute encrypted="false" name="username" value="hgfgh"/>
             </attributes>
             <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
@@ -46,5 +46,5 @@
       <types1:GUID>j0643alm5s7gCWvWpoo2K0</types1:GUID>
       <types1:DisplayName>vinICS-con</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2024-03-04T13:26:27.589Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2024-03-04T13:30:05.901Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
